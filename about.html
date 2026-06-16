@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Tawakkul Education</title>
+<link rel="icon" type="image/png" href="Logo/images.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #FAF7F2;
+    --sand:     #F0E8D8;
+    --dark:     #1C1814;
+    --espresso: #2A2118;
+    --gold:     #E2C08D;
+    --gold-dk:  #C9A05A;
+    --text:     #3D3028;
+    --mid:      #4A3A2C;
+    --border:   #E0D5C5;
+
+    --serif:    'Cormorant Garamond', Georgia, serif;
+    --display:  'Fraunces', Georgia, serif;
+    --sans:     'Lato', sans-serif;
+
+    --max:      1200px;
+    --pad:      clamp(1.5rem, 5vw, 4rem);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; }
+  img  { display: block; width: 100%; }
+  a    { color: inherit; text-decoration: none; }
+
+  .wrap    { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+  .gold-line { display: block; width: 40px; height: 1px; background: var(--gold); margin: 1.2rem 0; }
+  .eyebrow { font-family: var(--sans); font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: #8B6220; }
+
+  .btn {
+    display: inline-block; padding: .75rem 2rem;
+    border: 1px solid var(--gold); font-family: var(--sans);
+    font-size: .78rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--espresso); background: var(--gold); cursor: pointer;
+    transition: background .25s, color .25s;
+  }
+  .btn:hover { background: var(--gold-dk); border-color: var(--gold-dk); }
+  .btn-light { background: transparent; border-color: rgba(255,255,255,.6); color: #fff; }
+  .btn-light:hover { background: #fff; color: var(--espresso); }
+
+  /* ── NAV ── */
+  .nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .nav__inner {
+    max-width: var(--max); margin: 0 auto; padding: 0 var(--pad);
+    display: flex; align-items: center; justify-content: space-between; height: 70px;
+  }
+  .nav__logo {
+    font-family: var(--serif); font-size: 1.15rem; font-weight: 500;
+    letter-spacing: .08em; color: var(--dark);
+    display: flex; align-items: center; gap: .6rem;
+  }
+  .nav__logo span { color: var(--gold); }
+  .nav__logo-img { height: 38px; width: auto; display: block; }
+  .nav__links {
+    display: flex; align-items: center; gap: 2.4rem; list-style: none;
+    font-family: var(--sans); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text);
+  }
+  .nav__links a:hover { color: var(--gold); }
+  .nav__links a.active { color: var(--gold-dk); }
+  .nav__cta { font-size: .73rem; padding: .6rem 1.5rem; }
+
+  /* ── PAGE HERO BAND ── */
+  .page-hero {
+    background: var(--espresso);
+    padding: 5rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(226,192,141,.07) 0%, transparent 65%);
+  }
+  .page-hero__eyebrow { color: var(--gold); margin-bottom: 1rem; }
+  .page-hero__title {
+    font-family: var(--display); font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 300; color: #fff; line-height: 1.15; letter-spacing: .01em;
+  }
+  .page-hero__title em { font-style: italic; color: var(--gold); }
+
+  /* ── FOUNDER BIO ── */
+  .founder { padding: 7rem 0; background: var(--bg); }
+  .founder__grid {
+    display: grid; grid-template-columns: 5fr 7fr; gap: 6rem; align-items: start;
+  }
+  .founder__image { position: relative; }
+  .founder__photo {
+    aspect-ratio: 4/5;
+    background:
+      linear-gradient(180deg, rgba(42,33,24,.06) 0%, rgba(42,33,24,.3) 100%),
+      url('images/allen-y-Y5hiuHgRTus-unsplash.jpg') center center / cover no-repeat;
+    overflow: hidden;
+  }
+  .founder__image::before {
+    content: ''; position: absolute; top: -1rem; left: -1rem;
+    width: 100%; height: 100%; border: 1px solid var(--border); z-index: -1;
+  }
+  .founder__credentials {
+    display: flex; flex-direction: column; gap: .5rem; margin-top: 1.5rem;
+  }
+  .founder__credential {
+    font-family: var(--sans); font-size: .75rem; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--mid);
+    padding: .6rem .8rem; border-left: 2px solid var(--gold);
+    background: var(--sand);
+  }
+  .founder__text .eyebrow { margin-bottom: .8rem; }
+  .founder__name {
+    font-family: var(--display); font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: .3rem;
+  }
+  .founder__title {
+    font-family: var(--serif); font-size: 1rem; font-style: italic;
+    color: var(--gold-dk); margin-bottom: 2rem;
+  }
+  .founder__body {
+    font-size: .95rem; line-height: 1.95; color: var(--mid); margin-bottom: 1.4rem;
+  }
+  .founder__body strong { color: var(--text); font-weight: 400; }
+
+  /* ── ACHIEVEMENTS STRIP ── */
+  .achievements { padding: 4rem 0; background: var(--sand); }
+  .achievements__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+  .achievement {
+    background: var(--bg); padding: 2rem 1.5rem; text-align: center;
+  }
+  .achievement__number {
+    font-family: var(--display); font-size: 2.6rem; font-weight: 300;
+    color: var(--gold-dk); line-height: 1; margin-bottom: .5rem;
+  }
+  .achievement__label {
+    font-family: var(--sans); font-size: .72rem; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--mid); line-height: 1.6;
+  }
+
+  /* ── PHILOSOPHY BAND ── */
+  .philosophy { padding: 6rem 0; background: var(--espresso); text-align: center; }
+  .philosophy__quote {
+    font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.6rem);
+    font-weight: 300; font-style: italic; color: #fff;
+    line-height: 1.45; max-width: 760px; margin: 0 auto 1.5rem;
+  }
+  .philosophy__quote em { color: var(--gold); font-style: normal; }
+  .philosophy__attr {
+    font-family: var(--sans); font-size: .72rem; letter-spacing: .2em;
+    text-transform: uppercase; color: rgba(255,255,255,.4);
+  }
+
+  /* ── JOURNEY SECTION ── */
+  .journey { padding: 7rem 0; background: var(--bg); }
+  .journey__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .journey__image { position: relative; }
+  .journey__photo {
+    aspect-ratio: 3/4;
+    background:
+      linear-gradient(180deg, rgba(42,33,24,.05) 0%, rgba(42,33,24,.25) 100%),
+      url('images/arnel-hasanovic-MNd-Rka1o0Q-unsplash.jpg') center top / cover no-repeat;
+  }
+  .journey__image::after {
+    content: ''; position: absolute; bottom: -1.2rem; right: -1.2rem;
+    width: 55%; height: 55%; border: 1px solid var(--border); z-index: -1;
+  }
+  .journey__text .eyebrow { margin-bottom: .8rem; }
+  .journey__heading {
+    font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 300; line-height: 1.2; color: var(--dark); margin-bottom: 1.4rem;
+  }
+  .journey__heading em { font-style: italic; color: var(--gold-dk); }
+  .journey__body { font-size: .95rem; line-height: 1.95; color: var(--mid); margin-bottom: 1.2rem; }
+
+  /* ── CTA ── */
+  .cta-block {
+    padding: 7rem 0; background: var(--espresso); text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-block::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(226,192,141,.08) 0%, transparent 65%);
+  }
+  .cta-block__eyebrow { color: var(--gold); margin-bottom: 1rem; }
+  .cta-block__heading {
+    font-family: var(--display); font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 300; color: #fff; line-height: 1.2; margin-bottom: 1rem;
+  }
+  .cta-block__heading em { font-style: italic; color: var(--gold); }
+  .cta-block__sub {
+    font-family: var(--serif); font-size: 1.1rem; font-style: italic;
+    color: rgba(255,255,255,.6); margin-bottom: 2.5rem;
+    max-width: 520px; margin-left: auto; margin-right: auto;
+  }
+  .cta-block__note {
+    font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(255,255,255,.3); margin-top: 1.2rem; font-family: var(--sans);
+  }
+
+  /* ── FOOTER ── */
+  .footer { background: #160F09; padding: 4rem 0 2rem; }
+  .footer__grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem;
+  }
+  .footer__logo-img { height: 72px; width: auto; display: block; margin-bottom: .8rem; }
+  .footer__tagline {
+    font-family: var(--serif); font-size: .9rem; font-style: italic;
+    color: rgba(255,255,255,.4); margin-bottom: 1.2rem; line-height: 1.7;
+  }
+  .footer__social { display: flex; gap: 1rem; }
+  .footer__social a {
+    width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .7rem; color: rgba(255,255,255,.5); transition: border-color .2s, color .2s;
+  }
+  .footer__social a:hover { border-color: var(--gold); color: var(--gold); }
+  .footer__col-title {
+    font-family: var(--sans); font-size: .68rem; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+  }
+  .footer__links { list-style: none; }
+  .footer__links li { margin-bottom: .55rem; }
+  .footer__links a { font-size: .85rem; color: rgba(255,255,255,.45); transition: color .2s; }
+  .footer__links a:hover { color: rgba(255,255,255,.8); }
+  .footer__bottom {
+    border-top: 1px solid rgba(255,255,255,.07); padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer__copy { font-size: .75rem; color: rgba(255,255,255,.25); font-family: var(--sans); }
+  .footer__legal { display: flex; gap: 1.5rem; }
+  .footer__legal a { font-size: .75rem; color: rgba(255,255,255,.25); font-family: var(--sans); }
+  .footer__legal a:hover { color: rgba(255,255,255,.5); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav__links li:not(:last-child) { display: none; }
+    .founder__grid { grid-template-columns: 1fr; gap: 3rem; }
+    .founder__photo { aspect-ratio: 16/9; }
+    .achievements__grid { grid-template-columns: repeat(2, 1fr); }
+    .journey__grid { grid-template-columns: 1fr; gap: 3rem; }
+    .journey__photo { aspect-ratio: 16/9; }
+    .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+  @media (max-width: 600px) {
+    :root { --pad: 1.4rem; }
+    .nav__inner { height: 60px; }
+    .nav__links li { display: none; }
+    .nav__links li:last-child { display: flex; }
+    .page-hero { padding: 3.5rem 0 3rem; }
+    .founder { padding: 4rem 0; }
+    .founder__image::before { display: none; }
+    .achievements__grid { grid-template-columns: repeat(2, 1fr); }
+    .journey { padding: 4rem 0; }
+    .journey__image::after { display: none; }
+    .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer__bottom { flex-direction: column; align-items: flex-start; gap: .6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="Logo/images.png" alt="Tawakkul Education" class="nav__logo-img">
+      Tawakkul <span>Education</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="referral.html">Referral</a></li>
+      <li><a href="index.html#book" class="btn nav__cta">Book a Free Call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow page-hero__eyebrow">The Vision Behind Tawakkul</span>
+    <h1 class="page-hero__title">About <em>Tawakkul Education</em></h1>
+  </div>
+</section>
+
+<!-- FOUNDER BIO -->
+<section class="founder">
+  <div class="wrap">
+    <div class="founder__grid">
+      <div class="founder__image">
+        <div class="founder__photo"></div>
+        <div class="founder__credentials">
+          <div class="founder__credential">BSc &amp; Masters Graduate</div>
+          <div class="founder__credential">PGCE — UK Schools Teaching Certificate</div>
+          <div class="founder__credential">IEMI — Montessori Educational Leadership</div>
+          <div class="founder__credential">International Homeschool Coach</div>
+        </div>
+      </div>
+
+      <div class="founder__text">
+        <span class="eyebrow">Founder &amp; CEO</span>
+        <span class="gold-line"></span>
+        <h2 class="founder__name">Mrs Muna Ajadi</h2>
+        <p class="founder__title">Educator · Homeschool Coach · Visionary</p>
+
+        <p class="founder__body">
+          Mrs Muna Ajadi is a British Muslim homeschooler, International Homeschool Coach, and the visionary behind Tawakkul Education. Together with her husband, she has successfully homeschooled six of her children — alhamdulillah — from birth, raising children who have memorised the Quran, are bilingual and trilingual, and have gone on to study at the University of London, Doctor Wait University, and City University.
+        </p>
+        <p class="founder__body">
+          One of her children became <strong>the youngest student ever accepted into HKBU University in Dubai</strong> — at just 16 years old — graduating with a First Class Honours Degree in Engineering in 2020.
+        </p>
+        <p class="founder__body">
+          Mrs Muna graduated from three UK universities whilst simultaneously homeschooling and classroom teaching. Her 20-year teaching career began in the UK, took her through 11 years in Dubai, then across the UAE — where she found her calling bridging Islamic values with structured, personalised home education for families across the world.
+        </p>
+        <a href="index.html#book" class="btn">Book a Free Call with Muna</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements">
+  <div class="wrap">
+    <div class="achievements__grid">
+      <div class="achievement">
+        <div class="achievement__number">20+</div>
+        <div class="achievement__label">Years of Teaching Experience</div>
+      </div>
+      <div class="achievement">
+        <div class="achievement__number">6</div>
+        <div class="achievement__label">Children Homeschooled from Birth</div>
+      </div>
+      <div class="achievement">
+        <div class="achievement__number">3</div>
+        <div class="achievement__label">UK University Degrees</div>
+      </div>
+      <div class="achievement">
+        <div class="achievement__number">3</div>
+        <div class="achievement__label">Professional Certifications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY QUOTE -->
+<section class="philosophy">
+  <div class="wrap">
+    <p class="philosophy__quote">
+      "Education should adapt to the child — not the child to the <em>system</em>."
+    </p>
+    <p class="philosophy__attr">— Mrs Muna Ajadi, Founder of Tawakkul Education</p>
+  </div>
+</section>
+
+<!-- JOURNEY SECTION -->
+<section class="journey">
+  <div class="wrap">
+    <div class="journey__grid">
+      <div class="journey__text">
+        <span class="eyebrow">The Journey</span>
+        <span class="gold-line"></span>
+        <h2 class="journey__heading">
+          From Classroom to<br>
+          <em>Every Home in the World</em>
+        </h2>
+        <p class="journey__body">
+          Tawakkul Education was not built in a boardroom. It grew from two decades of teaching in UK classrooms, Dubai schools, and private homes — and from raising six children entirely outside the system.
+        </p>
+        <p class="journey__body">
+          With a strong connection to both the UK and the UAE, Tawakkul is uniquely positioned to bridge British academic rigour with Islamic values — serving families wherever they are in the world. Whether you are in London, Dubai, or travelling between both, we meet you where you are.
+        </p>
+        <p class="journey__body">
+          This is not a course. It is not a platform. It is a relationship — built on trust, expertise, and a deep belief that every child deserves an education as individual as they are.
+        </p>
+        <a href="services.html" class="btn">Explore the Programme</a>
+      </div>
+      <div class="journey__image">
+        <div class="journey__photo"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-block">
+  <div class="wrap">
+    <span class="eyebrow cta-block__eyebrow">Begin the Conversation</span>
+    <h2 class="cta-block__heading">
+      Ready to Build an Education<br>
+      <em>Your Child Will Thrive In?</em>
+    </h2>
+    <p class="cta-block__sub">
+      Book a free, no-obligation call. We'll listen to your family's situation and explain honestly whether we're the right fit.
+    </p>
+    <a href="https://calendly.com/tawakkuleducation/free-call" class="btn" target="_blank">Book Your Free Call</a>
+    <p class="cta-block__note">No commitment required &nbsp;·&nbsp; 30 minutes &nbsp;·&nbsp; Online or by phone</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img src="Logo/0x0.png" alt="Tawakkul Education" class="footer__logo-img">
+        <p class="footer__tagline">Personalised home education rooted in Islamic values and the British curriculum.</p>
+        <div class="footer__social">
+          <a href="#">In</a><a href="#">Ig</a><a href="#">Yt</a><a href="#">Fb</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Programme</div>
+        <ul class="footer__links">
+          <li><a href="services.html">The Governess Programme</a></li>
+          <li><a href="services.html">How It Works</a></li>
+          <li><a href="services.html">Curriculum</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Company</div>
+        <ul class="footer__links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Contact</div>
+        <ul class="footer__links">
+          <li><a href="mailto:info@tawakkuleducation.com">info@tawakkuleducation.com</a></li>
+          <li><a href="index.html#book">Book a Free Call</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 Tawakkul Education. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
