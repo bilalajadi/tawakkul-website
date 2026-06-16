@@ -126,27 +126,16 @@
     overflow: hidden;
     background: var(--espresso);
   }
-  /* HERO IMAGE — replace gradient with real photo once available */
-  /* File: images/hero.jpg — full-width editorial photo, dark/moody tone */
   .hero__photo {
     position: absolute; inset: 0;
     background:
       linear-gradient(
         160deg,
-        rgba(42,33,24,.72) 0%,
-        rgba(42,33,24,.45) 50%,
-        rgba(42,33,24,.68) 100%
+        rgba(42,33,24,.68) 0%,
+        rgba(42,33,24,.38) 50%,
+        rgba(42,33,24,.62) 100%
       ),
-      url('images/hero.jpg') center center / cover no-repeat,
-      linear-gradient(
-        120deg,
-        #5C3D1E 0%,
-        #8B6240 25%,
-        #C9A882 50%,
-        #8B7355 75%,
-        #3D2510 100%
-      );
-    background-size: cover;
+      url('images/tushar-ranjan-seth-GqpGd6NtUoI-unsplash.jpg') center center / cover no-repeat;
   }
   /* Texture overlay */
   .hero__photo::after {
@@ -241,13 +230,12 @@
   .intro__image {
     position: relative;
   }
-  /* ABOUT IMAGE — File: images/about.jpg — portrait crop, warm natural light */
   .intro__photo {
     aspect-ratio: 4/5;
     background:
-      linear-gradient(180deg, rgba(42,33,24,.1) 0%, rgba(42,33,24,.35) 100%),
-      url('images/about.jpg') center center / cover no-repeat,
-      linear-gradient(135deg, #D4B896 0%, #A8886A 40%, #7A5C3E 100%);
+      linear-gradient(180deg, rgba(42,33,24,.08) 0%, rgba(42,33,24,.28) 100%),
+      url('images/evgeni-tcherkasski-ksu_65duslc-unsplash.jpg') center center / cover no-repeat;
+    background-size: cover;
     position: relative;
     overflow: hidden;
   }
@@ -307,13 +295,12 @@
     order: -1;
     position: relative;
   }
-  /* PROGRAMME IMAGE — File: images/programme.jpg — portrait crop, calm study setting */
   .programme__photo {
     aspect-ratio: 3/4;
     background:
-      linear-gradient(180deg, rgba(42,33,24,.08) 0%, rgba(42,33,24,.3) 100%),
-      url('images/programme.jpg') center center / cover no-repeat,
-      linear-gradient(145deg, #C4A882 0%, #8B6845 45%, #5C3D20 100%);
+      linear-gradient(180deg, rgba(42,33,24,.06) 0%, rgba(42,33,24,.22) 100%),
+      url('images/jan-kahanek-g3O5ZtRk2E4-unsplash.jpg') center center / cover no-repeat;
+    background-size: cover;
   }
   .programme__image::after {
     content: '';
@@ -644,7 +631,6 @@
 <!-- ── HERO ──────────────────────────────────────────────── -->
 <section class="hero">
   <div class="hero__photo"></div>
-  <div class="hero__photo-note">↑ Real editorial photography here</div>
 
   <div class="hero__content">
     <p class="hero__eyebrow">Tawakkul Education &nbsp;·&nbsp; Est. in Purpose</p>
@@ -696,7 +682,6 @@
       </div>
       <div class="intro__image">
         <div class="intro__photo">
-          <span class="intro__photo-note">↑ Real photography here</span>
         </div>
       </div>
     </div>
