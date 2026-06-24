@@ -145,10 +145,11 @@
     position: absolute; inset: 0;
     background:
       linear-gradient(
-        160deg,
-        rgba(42,33,24,.68) 0%,
-        rgba(42,33,24,.38) 50%,
-        rgba(42,33,24,.62) 100%
+        to bottom,
+        rgba(42,33,24,.55) 0%,
+        rgba(42,33,24,.65) 40%,
+        rgba(42,33,24,.72) 65%,
+        rgba(42,33,24,.78) 100%
       ),
       url('images/tushar-ranjan-seth-GqpGd6NtUoI-unsplash.jpg') center center / cover no-repeat;
   }
@@ -187,10 +188,10 @@
   .hero__title em { font-style: italic; color: var(--gold); }
   .hero__sub {
     font-family: var(--serif); font-size: 1.1rem; font-weight: 300;
-    color: rgba(255,255,255,.95);
+    color: #fff;
     margin-bottom: 2.6rem;
     line-height: 1.9;
-    text-shadow: 0 1px 12px rgba(0,0,0,.55);
+    text-shadow: 0 2px 16px rgba(0,0,0,.8), 0 1px 4px rgba(0,0,0,.6);
   }
   .hero__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
   .hero__scroll {
@@ -892,7 +893,7 @@
     <p class="cta-block__sub">
       Book a free, no-obligation call. We'll listen to your family's situation and explain honestly whether we're the right fit.
     </p>
-    <a href="https://calendly.com/tawakkuleducation/free-call?month=2026-05" class="btn" target="_blank">
+    <a href="https://calendly.com/tawakkuleducation/free-call" class="btn" target="_blank">
       Book Your Free Call
     </a>
     <p class="cta-block__note">No commitment required &nbsp;·&nbsp; 30 minutes</p>
