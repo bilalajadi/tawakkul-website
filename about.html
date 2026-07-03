@@ -38,7 +38,7 @@
 
   .wrap    { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
   .gold-line { display: block; width: 40px; height: 1px; background: var(--gold); margin: 1.2rem 0; }
-  .eyebrow { font-family: var(--sans); font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: #8B6220; }
+  .eyebrow { font-family: var(--sans); font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: #5C3D11; }
 
   .btn {
     display: inline-block; padding: .75rem 2rem;
@@ -198,18 +198,18 @@
   .cta-block__heading em { font-style: italic; color: var(--gold); }
   .cta-block__sub {
     font-family: var(--serif); font-size: 1.1rem; font-style: italic;
-    color: rgba(255,255,255,.6); margin-bottom: 2.5rem;
+    color: rgba(255,255,255,.88); margin-bottom: 2.5rem;
     max-width: 520px; margin-left: auto; margin-right: auto;
   }
   .cta-block__note {
     font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
-    color: rgba(255,255,255,.3); margin-top: 1.2rem; font-family: var(--sans);
+    color: rgba(255,255,255,.6); margin-top: 1.2rem; font-family: var(--sans);
   }
 
   /* ── FOOTER ── */
   .footer { background: #160F09; padding: 4rem 0 2rem; }
   .footer__grid {
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem;
   }
   .footer__logo-img { height: 72px; width: auto; display: block; margin-bottom: .8rem; }
   .footer__tagline {
@@ -240,9 +240,34 @@
   .footer__legal a { font-size: .75rem; color: rgba(255,255,255,.25); font-family: var(--sans); }
   .footer__legal a:hover { color: rgba(255,255,255,.5); }
 
+  /* ── HAMBURGER ── */
+  .nav__hamburger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 6px; z-index: 101;
+  }
+  .nav__hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark); transition: transform .3s ease, opacity .3s ease; }
+  .nav__hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav__hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav__hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
-    .nav__links li:not(:last-child) { display: none; }
+    .nav__hamburger { display: flex; }
+    .nav__links {
+      position: absolute; top: 70px; left: 0; right: 0;
+      background: var(--bg); border-bottom: 1px solid var(--border);
+      flex-direction: column; align-items: flex-start;
+      padding: 1.5rem var(--pad) 2rem; gap: 1.4rem;
+      opacity: 0; transform: translateY(-6px); pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease; z-index: 99;
+    }
+    .nav__links.open { opacity: 1; transform: none; pointer-events: auto; }
+    .nav__links li { display: flex !important; }
+    .nav__links a { font-size: .9rem; }
     .founder__grid { grid-template-columns: 1fr; gap: 3rem; }
     .founder__photo { aspect-ratio: 16/9; }
     .achievements__grid { grid-template-columns: repeat(2, 1fr); }
@@ -253,8 +278,7 @@
   @media (max-width: 600px) {
     :root { --pad: 1.4rem; }
     .nav__inner { height: 60px; }
-    .nav__links li { display: none; }
-    .nav__links li:last-child { display: flex; }
+    .nav__links { top: 60px; }
     .page-hero { padding: 3.5rem 0 3rem; }
     .founder { padding: 4rem 0; }
     .founder__image::before { display: none; }
@@ -275,7 +299,10 @@
       <img src="Logo/images.png" alt="Tawakkul Education" class="nav__logo-img">
       Tawakkul <span>Education</span>
     </a>
-    <ul class="nav__links">
+    <button class="nav__hamburger" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html" class="active">About</a></li>
@@ -293,7 +320,7 @@
 </section>
 
 <!-- FOUNDER BIO -->
-<section class="founder">
+<section class="founder reveal">
   <div class="wrap">
     <div class="founder__grid">
       <div class="founder__image">
@@ -328,7 +355,7 @@
 </section>
 
 <!-- ACHIEVEMENTS -->
-<section class="achievements">
+<section class="achievements reveal">
   <div class="wrap">
     <div class="achievements__grid">
       <div class="achievement">
@@ -352,7 +379,7 @@
 </section>
 
 <!-- PHILOSOPHY QUOTE -->
-<section class="philosophy">
+<section class="philosophy reveal">
   <div class="wrap">
     <p class="philosophy__quote">
       "Education should adapt to the child — not the child to the <em>system</em>."
@@ -362,7 +389,7 @@
 </section>
 
 <!-- JOURNEY SECTION -->
-<section class="journey">
+<section class="journey reveal">
   <div class="wrap">
     <div class="journey__grid">
       <div class="journey__text">
@@ -391,7 +418,7 @@
 </section>
 
 <!-- CTA -->
-<section class="cta-block">
+<section class="cta-block reveal">
   <div class="wrap">
     <span class="eyebrow cta-block__eyebrow">Begin the Conversation</span>
     <h2 class="cta-block__heading">
@@ -414,21 +441,19 @@
         <img src="Logo/0x0.png" alt="Tawakkul Education" class="footer__logo-img">
         <p class="footer__tagline">Personalised home education rooted in Islamic values and the British curriculum.</p>
         <div class="footer__social">
-          <a href="#">In</a><a href="#">Ig</a><a href="#">Yt</a><a href="#">Fb</a>
+          <a href="https://www.linkedin.com/company/tawakkul-education" target="_blank" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.instagram.com/tawakkuleducation" target="_blank" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
         </div>
       </div>
       <div>
-        <div class="footer__col-title">Programme</div>
+        <div class="footer__col-title">Navigate</div>
         <ul class="footer__links">
-          <li><a href="services.html">The Governess Programme</a></li>
-          <li><a href="services.html">How It Works</a></li>
-          <li><a href="services.html">Curriculum</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Company</div>
-        <ul class="footer__links">
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="index.html#testimonials">Testimonials</a></li>
           <li><a href="index.html#faq">FAQ</a></li>
         </ul>
@@ -437,9 +462,7 @@
         <div class="footer__col-title">Contact</div>
         <ul class="footer__links">
           <li><a href="mailto:info@tawakkuleducation.com">info@tawakkuleducation.com</a></li>
-          <li><a href="index.html#book">Book a Free Call</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="https://calendly.com/tawakkuleducation/free-call" target="_blank">Book a Free Call</a></li>
         </ul>
       </div>
     </div>
@@ -452,6 +475,33 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Hamburger nav
+  const hamburger = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+      else { e.target.classList.remove('visible'); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
 
 </body>
 </html>
