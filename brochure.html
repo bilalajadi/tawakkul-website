@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Modern Governess Programme — Tawakkul Education</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Fraunces:ital,wght@0,300;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream:    #FAF7F2;
+  --sand:     #F0E8D8;
+  --espresso: #2A2118;
+  --dark:     #1C1814;
+  --gold:     #E2C08D;
+  --gold-dk:  #C9A05A;
+  --text:     #3D3028;
+  --mid:      #4A3A2C;
+  --border:   #E0D5C5;
+  --serif:    'Cormorant Garamond', Georgia, serif;
+  --display:  'Fraunces', Georgia, serif;
+  --sans:     'Lato', sans-serif;
+}
+
+html { font-size: 10pt; }
+body {
+  background: #D5D0C8;
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── PAGE SHELL ── */
+.page {
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  position: relative;
+  margin: 3rem auto;
+  background: var(--cream);
+  box-shadow: 0 8px 60px rgba(0,0,0,.22);
+}
+
+@media print {
+  body { background: none; }
+  .page {
+    margin: 0;
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+  .page:last-child { break-after: avoid; page-break-after: avoid; }
+  @page { size: A4 portrait; margin: 0; }
+}
+
+/* ══════════════════════════════════════
+   PAGE 1 — COVER
+══════════════════════════════════════ */
+.cover {
+  background:
+    linear-gradient(to bottom,
+      rgba(26,20,14,.70) 0%,
+      rgba(26,20,14,.42) 38%,
+      rgba(26,20,14,.68) 72%,
+      rgba(26,20,14,.82) 100%),
+    url('images/tushar-ranjan-seth-GqpGd6NtUoI-unsplash.jpg') center center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  padding: 12mm 15mm 10mm;
+}
+
+.cover__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8mm;
+  border-bottom: 0.5px solid rgba(255,255,255,.18);
+}
+
+.cover__logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--serif);
+  font-size: 8.5pt;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+}
+
+.cover__logo img {
+  height: 26px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: .7;
+}
+
+.cover__top-right {
+  font-family: var(--sans);
+  font-size: 6pt;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .8;
+}
+
+.cover__mid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 10mm;
+}
+
+.cover__eyebrow {
+  font-family: var(--sans);
+  font-size: 7pt;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 5mm;
+}
+
+.cover__headline {
+  font-family: var(--display);
+  font-size: 42pt;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.06;
+  color: #fff;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+  margin-bottom: 6mm;
+}
+
+.cover__rule {
+  display: block;
+  width: 36mm;
+  height: 0.5px;
+  background: var(--gold);
+  margin-bottom: 6mm;
+}
+
+.cover__sub {
+  font-family: var(--serif);
+  font-size: 11.5pt;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255,255,255,.75);
+  line-height: 1.55;
+  max-width: 128mm;
+}
+
+.cover__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 7mm;
+  border-top: 0.5px solid rgba(255,255,255,.14);
+}
+
+.cover__bottom-year {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+}
+
+.cover__bottom-url {
+  font-family: var(--serif);
+  font-size: 8.5pt;
+  font-style: italic;
+  color: rgba(255,255,255,.45);
+}
+
+/* ══════════════════════════════════════
+   PAGE 2 — PROGRAMME
+══════════════════════════════════════ */
+.programme {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hook strip at top */
+.p2__hook {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10mm;
+  padding: 10mm 15mm 8mm;
+  border-bottom: 0.5px solid var(--border);
+  background: var(--cream);
+}
+
+.p2__hook-label {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold-dk);
+  margin-bottom: 3mm;
+}
+
+.p2__hook-headline {
+  font-family: var(--display);
+  font-size: 19pt;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.15;
+  color: var(--dark);
+  text-wrap: balance;
+}
+
+.p2__hook-body {
+  font-family: var(--sans);
+  font-size: 8pt;
+  color: var(--mid);
+  line-height: 1.85;
+  padding-top: 2mm;
+}
+
+/* Main grid */
+.p2__main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 68mm;
+}
+
+.p2__left {
+  padding: 9mm 9mm 8mm 15mm;
+  border-right: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 7mm;
+}
+
+.p2__right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reusable section label */
+.sec-label {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--gold-dk);
+  margin-bottom: 2.5mm;
+}
+
+.sec-heading {
+  font-family: var(--display);
+  font-size: 14pt;
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--dark);
+  margin-bottom: 4mm;
+  text-wrap: balance;
+}
+
+/* Tier table */
+.tier-table {
+  border-top: 0.5px solid var(--border);
+}
+
+.tier-row {
+  display: grid;
+  grid-template-columns: 25mm 20mm 1fr;
+  gap: 3mm;
+  padding: 3.5mm 0;
+  border-bottom: 0.5px solid var(--border);
+  align-items: baseline;
+}
+
+.tier-name {
+  font-family: var(--serif);
+  font-size: 9pt;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.tier-years {
+  font-family: var(--sans);
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--gold-dk);
+  letter-spacing: .04em;
+}
+
+.tier-subjects {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: var(--mid);
+  line-height: 1.55;
+}
+
+/* Includes grid */
+.includes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5mm 4mm;
+}
+
+.include-item {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: var(--mid);
+  display: flex;
+  gap: 2.5mm;
+  align-items: flex-start;
+  line-height: 1.6;
+}
+
+.include-mark {
+  color: var(--gold-dk);
+  flex-shrink: 0;
+  font-size: 9pt;
+  line-height: 1.4;
+}
+
+/* Right column */
+.p2__photo {
+  width: 100%;
+  height: 62mm;
+  object-fit: cover;
+  display: block;
+  object-position: center 30%;
+}
+
+.p2__sidebar {
+  flex: 1;
+  background: var(--sand);
+  border-top: 2.5px solid var(--gold-dk);
+  padding: 7mm 8mm;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.p2__sidebar-title {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold-dk);
+  margin-bottom: 4mm;
+}
+
+.diff-item {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: var(--mid);
+  line-height: 1.65;
+  padding: 2mm 0;
+  border-bottom: 0.5px solid rgba(42,33,24,.1);
+  display: flex;
+  gap: 3mm;
+  align-items: flex-start;
+}
+
+.diff-item:last-child { border-bottom: none; }
+
+.diff-mark {
+  color: var(--gold-dk);
+  flex-shrink: 0;
+  font-size: 10pt;
+  line-height: 1.4;
+}
+
+/* ══════════════════════════════════════
+   PAGE 3 — TRUST + CTA
+══════════════════════════════════════ */
+.trust-page {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Stats strip */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 0.5px solid var(--border);
+  flex-shrink: 0;
+}
+
+.stat-cell {
+  padding: 7mm 5mm;
+  text-align: center;
+  border-right: 0.5px solid var(--border);
+}
+
+.stat-cell:last-child { border-right: none; }
+
+.stat-num {
+  font-family: var(--display);
+  font-size: 24pt;
+  font-weight: 300;
+  color: var(--gold-dk);
+  line-height: 1;
+  margin-bottom: 2mm;
+}
+
+.stat-label {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  line-height: 1.55;
+}
+
+/* Content grid */
+.p3__main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.p3__left {
+  padding: 9mm 9mm 8mm 15mm;
+  border-right: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+}
+
+.p3__right {
+  padding: 9mm 15mm 8mm 9mm;
+}
+
+/* Who block */
+.who-block {
+  background: var(--sand);
+  border-left: 2.5px solid var(--gold-dk);
+  padding: 5mm 6mm;
+}
+
+.who-block-title {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold-dk);
+  margin-bottom: 3.5mm;
+}
+
+.who-item {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: var(--mid);
+  line-height: 1.7;
+  display: flex;
+  gap: 3mm;
+  align-items: flex-start;
+  padding: 1mm 0;
+}
+
+.who-item::before { content: '›'; color: var(--gold-dk); flex-shrink: 0; }
+
+/* Pull quote */
+.pull-quote {
+  font-family: var(--serif);
+  font-size: 11.5pt;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--dark);
+  line-height: 1.55;
+  border-left: 2px solid var(--gold);
+  padding-left: 5mm;
+  margin-bottom: 2.5mm;
+}
+
+.pull-attr {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding-left: 5mm;
+}
+
+/* FAQs */
+.faq-list { list-style: none; }
+
+.faq-item {
+  padding: 4mm 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.faq-item:first-child { padding-top: 0; }
+.faq-item:last-child { border-bottom: none; }
+
+.faq-q {
+  font-family: var(--serif);
+  font-size: 9pt;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 1.5mm;
+  line-height: 1.4;
+}
+
+.faq-a {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: var(--mid);
+  line-height: 1.75;
+}
+
+/* CTA band */
+.cta-band {
+  background: var(--espresso);
+  padding: 10mm 15mm;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12mm;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cta-eyebrow {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3mm;
+  opacity: .85;
+}
+
+.cta-headline {
+  font-family: var(--display);
+  font-size: 21pt;
+  font-weight: 300;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.12;
+  margin-bottom: 3.5mm;
+  text-wrap: balance;
+}
+
+.cta-sub {
+  font-family: var(--sans);
+  font-size: 7.5pt;
+  color: rgba(255,255,255,.5);
+  line-height: 1.75;
+  max-width: 105mm;
+}
+
+.cta-note {
+  display: block;
+  font-family: var(--sans);
+  font-size: 6pt;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.22);
+  margin-top: 4mm;
+}
+
+.cta-contact {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cta-contact-label {
+  font-family: var(--sans);
+  font-size: 6pt;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.28);
+  margin-bottom: 2.5mm;
+}
+
+.cta-contact-email {
+  font-family: var(--serif);
+  font-size: 9pt;
+  font-style: italic;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1.5mm;
+  text-decoration: none;
+}
+
+.cta-contact-url {
+  font-family: var(--sans);
+  font-size: 6.5pt;
+  color: rgba(255,255,255,.35);
+  letter-spacing: .06em;
+  display: block;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     PAGE 1 — COVER
+══════════════════════════════════════ -->
+<div class="page cover">
+
+  <div class="cover__top">
+    <div class="cover__logo">
+      <img src="Logo/images.png" alt="">
+      Tawakkul Education
+    </div>
+    <div class="cover__top-right">British Curriculum &nbsp;·&nbsp; Islamic Values &nbsp;·&nbsp; Fully Online</div>
+  </div>
+
+  <div class="cover__mid">
+    <div class="cover__eyebrow">The Modern Governess Programme</div>
+    <h1 class="cover__headline">An education<br>built around<br>your child.</h1>
+    <span class="cover__rule"></span>
+    <p class="cover__sub">Complete, purposeful, and exclusively tailored — a bespoke academic journey for Muslim families who expect more than the classroom can offer.</p>
+  </div>
+
+  <div class="cover__bottom">
+    <div class="cover__bottom-year">2025–2026 Academic Year</div>
+    <div class="cover__bottom-url">tawakkuleducation.com</div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 2 — THE PROGRAMME
+══════════════════════════════════════ -->
+<div class="page programme">
+
+  <div class="p2__hook">
+    <div>
+      <div class="p2__hook-label">A More Considered Approach</div>
+      <h2 class="p2__hook-headline">Your child deserves more than a seat in a classroom.</h2>
+    </div>
+    <div class="p2__hook-body">
+      Every classroom has thirty students, one teacher, one pace, one standard. Your child — with their own learning style, strengths, and character — is expected to fit it.<br><br>
+      Most don't. Not because they are not capable. Because the system was never designed with them in mind.
+    </div>
+  </div>
+
+  <div class="p2__main">
+
+    <div class="p2__left">
+
+      <div>
+        <div class="sec-label">The Programme</div>
+        <div class="sec-heading">Three Pathways.<br>One Consistent Standard.</div>
+        <div class="tier-table">
+          <div class="tier-row">
+            <div class="tier-name">Foundation</div>
+            <div class="tier-years">Years 1–4</div>
+            <div class="tier-subjects">English, Mathematics, Science — core literacy and numeracy</div>
+          </div>
+          <div class="tier-row">
+            <div class="tier-name">Development</div>
+            <div class="tier-years">Years 5–8</div>
+            <div class="tier-subjects">Core subjects plus History, Geography and Islamic Studies — broadening the academic base</div>
+          </div>
+          <div class="tier-row">
+            <div class="tier-name">Advanced</div>
+            <div class="tier-years">Years 9–11</div>
+            <div class="tier-subjects">IGCSE preparation pathway — internationally recognised qualifications</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-label">What Every Programme Includes</div>
+        <div class="includes-grid">
+          <div class="include-item"><span class="include-mark">›</span>Personalised lesson planning</div>
+          <div class="include-item"><span class="include-mark">›</span>Progress reports for parents</div>
+          <div class="include-item"><span class="include-mark">›</span>UK-qualified lead teacher</div>
+          <div class="include-item"><span class="include-mark">›</span>Character development woven in</div>
+          <div class="include-item"><span class="include-mark">›</span>Critical thinking and reasoning</div>
+          <div class="include-item"><span class="include-mark">›</span>Islamic values integrated naturally</div>
+          <div class="include-item"><span class="include-mark">›</span>Maximum 2 hours per day</div>
+          <div class="include-item"><span class="include-mark">›</span>IGCSE pathway (Years 9–11)</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="p2__right">
+      <img
+        src="images/jan-kahanek-g3O5ZtRk2E4-unsplash.jpg"
+        alt="Purposeful study"
+        class="p2__photo"
+      >
+      <div class="p2__sidebar">
+        <div class="p2__sidebar-title">What Makes This Different</div>
+        <div class="diff-item"><span class="diff-mark">›</span>Not a school. Not tutoring. Not hours in front of a screen.</div>
+        <div class="diff-item"><span class="diff-mark">›</span>A maximum of 2 hours per day — focused, complete, purposeful.</div>
+        <div class="diff-item"><span class="diff-mark">›</span>British curriculum. UK-qualified teachers.</div>
+        <div class="diff-item"><span class="diff-mark">›</span>Islamic values woven throughout — not a separate subject.</div>
+        <div class="diff-item"><span class="diff-mark">›</span>Selective. We work with a limited number of families each year.</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════
+     PAGE 3 — TRUST + CTA
+══════════════════════════════════════ -->
+<div class="page trust-page">
+
+  <div class="stats-strip">
+    <div class="stat-cell">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Years of Teaching Experience</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Children Homeschooled by Our Founder</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">2hrs</div>
+      <div class="stat-label">Maximum Per Day</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">GCC+</div>
+      <div class="stat-label">Serving Families Globally</div>
+    </div>
+  </div>
+
+  <div class="p3__main">
+
+    <div class="p3__left">
+
+      <div>
+        <div class="sec-label" style="margin-bottom: 4mm;">This Programme Is For</div>
+        <div class="who-block">
+          <div class="who-block-title">Families who:</div>
+          <div class="who-item">Seek a rigorous alternative to conventional schooling</div>
+          <div class="who-item">Want Islamic values present throughout — not as an afterthought</div>
+          <div class="who-item">Value individual attention over classroom uniformity</div>
+          <div class="who-item">Are preparing their child for IGCSE and university entry</div>
+          <div class="who-item">Are based anywhere — we teach fully online</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-label" style="margin-bottom: 4mm;">A Word from Our Founder</div>
+        <p class="pull-quote">"Education should adapt to the child — not the child to the system."</p>
+        <div class="pull-attr">Mrs Muna Ajadi — Founder, Tawakkul Education</div>
+      </div>
+
+    </div>
+
+    <div class="p3__right">
+      <div class="sec-label" style="margin-bottom: 4mm;">Frequently Asked Questions</div>
+      <ul class="faq-list">
+        <li class="faq-item">
+          <div class="faq-q">How is this different from tutoring?</div>
+          <div class="faq-a">Tutoring improves individual subjects. The Modern Governess Programme replaces the school structure entirely — covering all core subjects with a consistent teacher and a coherent academic plan built around your child.</div>
+        </li>
+        <li class="faq-item">
+          <div class="faq-q">Where is teaching delivered?</div>
+          <div class="faq-a">Fully online, directly with your child. No classroom, no commute. Available to families in the GCC, North Africa, the UK, and worldwide.</div>
+        </li>
+        <li class="faq-item">
+          <div class="faq-q">How involved do I need to be as a parent?</div>
+          <div class="faq-a">You receive regular progress reports and are always welcome to engage. The programme is designed to run without requiring your daily supervision.</div>
+        </li>
+        <li class="faq-item">
+          <div class="faq-q">How does my child's programme begin?</div>
+          <div class="faq-a">A private 30-minute consultation — no commitment, no obligation — to understand your child's level and goals. A tailored plan is then developed specifically for them.</div>
+        </li>
+        <li class="faq-item">
+          <div class="faq-q">Is there a minimum age or year group?</div>
+          <div class="faq-a">The programme is available for children in Years 1 through 11. We tailor the depth and pace entirely to the individual child.</div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="cta-band">
+    <div>
+      <div class="cta-eyebrow">Begin Your Journey</div>
+      <div class="cta-headline">The first step takes<br>30 minutes.</div>
+      <div class="cta-sub">A private, no-obligation conversation to understand your child and determine whether this programme is the right fit. No commitment required.</div>
+      <span class="cta-note">No commitment &nbsp;·&nbsp; 30 minutes &nbsp;·&nbsp; Fully confidential</span>
+    </div>
+    <div class="cta-contact">
+      <div class="cta-contact-label">Get in touch</div>
+      <a class="cta-contact-email" href="mailto:info@tawakkuleducation.com">info@tawakkuleducation.com</a>
+      <span class="cta-contact-url">tawakkuleducation.com</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
